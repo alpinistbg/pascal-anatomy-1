@@ -46,12 +46,112 @@ end. // Край на главната програма, изисква симв
 ----
 //Когато декларирате променливи
 //може да направите така
-var a:integer;
-var b:integer;
+var a: integer;
+var b: integer;
 //или така
 var 
-    a : integer;
-    b : integer;
+    a: integer;
+    b: integer;
 //или така
-var a,b : integer;
+var a, b: integer;
+----
+
+[source,pascal]
+----
+program Learn_More;
+  // Нека научим за типовете данни и техните операции
+
+const
+  PI = 3.141592654;
+  GNU = 'GNU''s Not Unix';
+    // константите по конвенция се именуват с ГЛАВНИ букви
+    // стойностите им са фиксирани и не могат да се променят по време на изпълнение
+    // съдържа всякакъв стандартен тип данни (integer, real, boolean, char, string)
+
+type
+  ch_array = array [0..255] of char;
+    // масивите са нови „типове“, указващи дължината и типа на елементите
+    // горното дефинира нов тип данни, който съдържа 255 знака
+    // (това е функционално еквивалентно на променлива от тип string[256])
+  md_array = array of array of integer;
+    // вложените масиви са еквивалентни на многомерни масиви
+    // може да дефинира масиви без дължина, които са с динамичен размер
+    // горното е двумерен масив от цели числа
+
+  //Declaring variables
+var
+  i, c, d: integer;
+    // three variables that contain integer numbers
+    // integers are 16-bits and limited to the range [-32,768..32,767]
+  r: real;
+    // a variable that contains a real number data types
+    // reals can range between [3.4E-38..3.4E38]
+  bool: boolean;
+    // a variable that contains a Boolean(True/False) value
+  ch: char;
+    // a variable that contains a character value
+    // char variables are stored as 8-bit data types so no UTF
+  str: string;
+    // a non-standard variable that contains a string value
+    // strings are an extension included in most Pascal compilers
+    // they are stored as an array of char with default length of 255.
+  s: string[50];
+    // a string with maximum length of 50 chars.
+    // you can specify the length of the string to minimize memory usage
+  my_str: ch_array;
+    // you can declare variables of custom types
+  my_2d: md_array;
+    // dynamically sized arrays need to be sized before they can be used.
+
+  // additional integer data types
+  b: byte;       // range [0..255]
+  shi: shortint; // range [-128..127]
+  smi: smallint; // range [-32,768..32,767] (standard Integer)
+  w: word;       // range [0..65,535]
+  li: longint;   // range [-2,147,483,648..2,147,483,647]
+  lw: longword;  // range [0..4,294,967,295]
+  c: cardinal;   // longword
+  i64: int64;    // range [-9223372036854775808..9223372036854775807]
+  qw: qword;     // range [0..18,446,744,073,709,551,615]
+
+  // additional real types
+  rr: real;     // range depends on platform (i.e., 8-bit, 16-bit, etc.)
+  rs: single;   // range [1.5E-45..3.4E38]
+  rd: double;   // range [5.0E-324 .. 1.7E308]
+  re: extended; // range [1.9E-4932..1.1E4932]
+  rc: comp;     // range [-2E64+1 .. 2E63-1]
+
+begin
+  i := 1; // how to assign a value to a variable
+  r := 3.14;
+  ch := 'a';
+  str := 'apple';
+  bool := True;
+    // pascal is not a case-sensitive language
+    // arithmetic operation
+  i := 1 + 1;   // i = 2 overwriting the previous assignment
+  i := i + 1;   // i = 2 + 1 = 3;
+  i := 4 div 2; // i = 2 division operation where result will be floored
+  i := 3 div 2; // i = 1
+  i := 1 div 2; // i = 0
+
+  bool := True or False; // bool = true
+  bool := False and True; // bool = false
+  bool := True xor True; // bool = false
+
+  r := 3 / 2; // a division operator for real
+  r := i;     // can assign an integer to a real variable but not the reverse
+
+  c := str[1]; // assign the first letter of str to c
+  str := 'hello' + 'world'; // combining strings
+
+  my_str[0] := 'a'; // array assignment needs an index
+
+  setlength(my_2d, 10, 10); // initialize dynamically sized arrays: 10×10 array
+  for c := 0 to 9 do // arrays begin at 0 and end at length-1
+    for d := 0 to 9 do // for loop counters need to be declared variables
+      my_2d[c, d] := c * d;
+    // address multidimensional arrays with a single set of brackets
+
+end.
 ----
