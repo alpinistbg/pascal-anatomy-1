@@ -1,0 +1,46 @@
+
+.Въпрос 1
+****
+Кои от следните са валидни Паскал идентификатори?
+
+[source]
+----
+birthday        case                CaseNumber
+TooHot?         First_Initial       3rdValue
+-Number         OldName             downto.what
+'grade'         1Program            Beginning
+----
+
+Not too many of these are valid — only _birthday_, _CaseNumber_, _OldName_, and
+_Beginning_ may be used correctly, _case_ is tempting, but it’s a reserved word.
+
+****
+
+.Въпрос 2
+****
+There are errors on each line of this program. Find them.
+
+[source]
+----
+program Print.Paper (output;)                         {line 1}
+begin;                                                {line 2}
+  write ('To think that two and two are four, );      {line 3}
+  writln (and neither five or three, );               {line 4}
+  write ('The heart of man has long been sore';       {line 5}
+  write ('and long 'tis like to be.')                 {line 6}
+end                                                   {line 7}
+----
+
+Written correctly, the program would be:
+[source,pascal]
+----
+program PrintPaper (output);                          {line 1}
+begin                                                 {line 2}
+  write (To think that two and two are four, ');      {line 3}
+  writeln ('and neither five or three, ');            {line 4}
+  write (The heart of man has long been sore ');      {line 5}
+  writeln ('and long ''tis like to be.')              {line 6}
+end.                                                  {line 7}
+----
+
+****
