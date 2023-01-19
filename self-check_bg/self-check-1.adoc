@@ -11,8 +11,12 @@ TooHot?         First_Initial       3rdValue
 'grade'         1Program            Beginning
 ----
 
+.Answer
+[%collapsible]
+====
 Not too many of these are valid — only _birthday_, _CaseNumber_, _OldName_, and
 _Beginning_ may be used correctly, _case_ is tempting, but it’s a reserved word.
+====
 
 ****
 
@@ -31,6 +35,9 @@ begin;                                                {line 2}
 end                                                   {line 7}
 ----
 
+.Answer
+[%collapsible]
+====
 Written correctly, the program would be:
 [source,pascal]
 ----
@@ -42,6 +49,7 @@ begin                                                 {line 2}
   writeln ('and long ''tis like to be.')              {line 6}
 end.                                                  {line 7}
 ----
+====
 
 ****
 
@@ -56,6 +64,9 @@ Write these numbers as Pascal reals.
 |g) 10^14^     |h) -50        |i) 12.500
 |===
 
+.Answer
+[%collapsible]
+====
 Notice that conventionally there’s only one digit before the decimal in floating-
 point notation.
 
@@ -65,7 +76,7 @@ point notation.
 |d) 8.8E+01     |e) 8.562E-03 |f) -9.427003E+03
 |g) 1.0E+14     |h) -5.0E+01  |i) 1.25E+01
 |===
-
+====
 ****
 
 .Въпрос 4
@@ -85,8 +96,12 @@ var time: real;
     month: integer;
 ----
 
+.Answer
+[%collapsible]
+====
 Yes. The syntax chart shows that the exact order and grouping of declarations
 is unimportant.
+====
 
 ****
 
@@ -100,33 +115,23 @@ Which values may not be given to any variable? Assume we’ve made this declarat
 var IntegerValue: integer; Letter: char; RealValue: real;
 ----
 
-a. l
-e. -52
-i. .9E-3
-m. -667.3
+[grid=none]
+|===
+|a) l            |b) 0.0          |c) T          |d) .3519
+|e) -52          |f) 0            |g) 5.E+22     |h) ;
+|i) .9E-3        |j) 35.2E-17     |k) -18E+6.0   |l) dd
+|m) -667.3       |n) 1,387        |o) -1         |p) -12E-7
+|===
 
-b) 0.0
-f) 0
-j) 35.2E-17
-n) 1,387
-
-c) T
-g) 5.E+22
-k) -18E+6.0
-o) -1
-
-d) .3519
-h) ;
-l) dd
-p) -12E-7
-
-
+.Answer
+[%collapsible]
+====
 _IntegerValue_ may be 7, -52, 0, or -7. +
 _Letter_ may be ‘7’, T\ ‘O’, or . +
 _RealValue_ may be 7, 0.0, -52, 0, 35.2E-17, -667.3, -7, or -12E-7. +
 The values .3519, 5.E+22, .9E-3, -18E+6.0, dd, and 1,387 aren’t legal Pascal, +
 and can’t be given to any variables at all.
-
+====
 ****
 
 .Въпрос 6
@@ -141,6 +146,9 @@ e) Efficiency := .35;       f) Initial := 'WS';
 g) Sum := 9 and 13;         h) TaxRate:=5%;
 ----
 
+.Answer
+[%collapsible]
+====
 The rewritten assignments:
 
 [source,pascal]
@@ -150,6 +158,7 @@ c) FirstLetter := 'A';          d) StartingCount := 0; Initial := 0;
 e) Efficiency := 0.35;          f) A variable represents just one letter.
 g) Sum := 9+13;                 h) TaxRate:= 0.05;
 ----
+====
 
 ****
 
@@ -159,29 +168,91 @@ Evaluate these expressions. Assume that the following assignments have been
 made: `Channel := 6;` and `Frequency := 3.5;`. What is the type of each of 
 the expressions?
 
-a) 102 div 25           b) _Channel_ * _Frequency_
-c) _Frequency_-_Channel_    d) 69 mod _Channel_
-e) _Channel_ mod 69       f) _Channel_ mod _Frequency_
-g) 12E+02+_Frequency_     h) 12E+02+_Channel_
-i) _Channel_/1            y) _Channel_* 1.0
+[grid=none]
+|===
+|a) 102 div 25               |b) _Channel_ * _Frequency_
+|c) _Frequency_-_Channel_    |d) 69 mod _Channel_
+|e) _Channel_ mod 69         |f) _Channel_ mod _Frequency_
+|g) 12E+02+_Frequency_       |h) 12E+02+_Channel_
+|i) _Channel_/1              |y) _Channel_* 1.0
+|===
 
+.Answer
+[%collapsible]
+====
 Note the mismatched types in _f_.
 
-a) 4 _integer_
-c) -2.5 _real_
-e) 6 _integer_
-g) 1203.5 _real_
-i) 6.0 _real_
+[grid=none]
+|===
+|a) 4 _integer_              |b) 21.0 _real_
+|c) -2.5 _real_              |d) 3 _integer_
+|e) 6 _integer_              |f) Type clash—invalid expression
+|g) 1203.5 _real_            |h) 1206.0 _real_
+|i) 6.0 _real_               |j) 6.0 _real_
+|===
 
-b) 21.0 _real_
-d) 3 _integer_
-f) Type clash—invalid expression
-h) 1206.0 _real_
-j) 6.0 _real_
+====
 
 ****
 
 .Въпрос 8
+****
+These expressions are evaluated in a certain sequence by the rules of Pascal.
+Insert parentheses to make the order more explicit.
+
+[source]
+----
+a) 5-9*3+2              b) 0.09/1.394*8.6/5.004E+02
+c) 7*8-9+12 div 5       d) 1E+04/2.5E-01+350.0*-0.10
+e) 1+3*9 div -6 div 7   f) 5.9E+07+(-18E+03)-0.6/5.9E-02-8.1
+----
+
+.Answer
+[%collapsible]
+====
+All other things being equal, evaluation goes from left to right.
+
+[source,pascal]
+----
+a) 5-(9*3)+2                   b) ((0.09/1.394)*8.6)/5.004E+02
+c) (7*8)-9+(12 div 5)          d) (1E+04/2.5E-01)+(350.0*(-0.10))
+e) 1+(((3*9) div(-6)) div 7)   f) 5.9E+07+(-18E+03)-(0.6/5.9E-02)-8.1
+----
+====
+****
+
+
+.Въпрос 9
+****
+What types do each of these constants represent?
+
+[source]
+----
+a) WIDTH = 5;           b) YEAR = 1981; 
+c) NUMBER = '5';        d) SIZE = 5E+02;
+e) DATE = '1981';       f) SPACE = ''; 
+g) MASS = 1.79E-02;     h) TENSPACES = '          ';
+i) WEIGHT = MASS;      j) CENTURY = YEAR div 100;
+----
+
+.Answer
+[%collapsible]
+====
+Note that _i)_ is legal if _MASS_ has already been declared as a constant.
+
+[grid=none]
+|===
+|a) _integer_           |b) _integer_
+|c) _char_              |d) _real_
+|e) text constant     |f) _char_
+|g) _real_              |h) text constant
+|i) _real_              |j) invalid declaration
+|===
+
+====
+****
+
+.Въпрос 10
 ****
 There are 
 
@@ -189,9 +260,12 @@ There are
 ----
 ----
 
+.Answer
+[%collapsible]
+====
 Written correctly, the program would be:
 [source,pascal]
 ----
 ----
-
+====
 ****

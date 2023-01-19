@@ -1,3 +1,4 @@
 pascal-anatomy_bg.html
 pascal-anatomy_bg.pdf
-self-check_bg/self-check-1.pdf
+self-check_bg/*.pdf
+self-check_bg/*.html
