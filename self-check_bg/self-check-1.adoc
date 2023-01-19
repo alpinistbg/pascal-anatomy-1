@@ -100,10 +100,10 @@ Which values may not be given to any variable? Assume we’ve made this declarat
 var IntegerValue: integer; Letter: char; RealValue: real;
 ----
 
-a) l
-e) -52
-i) .9E-3
-m) -667.3
+a. l
+e. -52
+i. .9E-3
+m. -667.3
 
 b) 0.0
 f) 0
@@ -121,10 +121,10 @@ l) dd
 p) -12E-7
 
 
-_IntegerValue_ may be 7, -52, 0, or -7.
-_Letter_ may be ‘7’, T\ ‘O’, or .
-_RealValue_ may be 7, 0.0, -52, 0, 35.2E-17, -667.3, -7, or -12E-7.
-The values .3519, 5.E+22, .9E-3, -18E+6.0, dd, and 1,387 aren’t legal Pascal,
+_IntegerValue_ may be 7, -52, 0, or -7. +
+_Letter_ may be ‘7’, T\ ‘O’, or . +
+_RealValue_ may be 7, 0.0, -52, 0, 35.2E-17, -667.3, -7, or -12E-7. +
+The values .3519, 5.E+22, .9E-3, -18E+6.0, dd, and 1,387 aren’t legal Pascal, +
 and can’t be given to any variables at all.
 
 ****
