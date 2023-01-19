@@ -254,6 +254,68 @@ Note that _i)_ is legal if _MASS_ has already been declared as a constant.
 
 .Въпрос 10
 ****
+What value will the following program segment print out?
+
+[source]
+----
+  Side := 4;
+  sqr (Side);
+  writeln ('The square of the side is ', Side);
+----
+
+.Answer
+[%collapsible]
+====
+The segment won’t run at all, because the function call in the second line of the
+segment — _sqr_(_Side_) — is just a representation of the value 4 squared, or 16. It’s as
+though we had written:
+
+[source,pascal]
+----
+  Side := 4; {incorrect code}
+  16; {The value sqr(Side) represents.}
+  writeln ('The square ofthe side is ', Side) ;
+----
+
+To get the desired effect, we should write:
+
+[source,pascal]
+----
+  Side := 4; {the corrected segment}
+  SquaredSide := sqr(Side);
+  writeln ('The square of the side is ', SquaredSide);
+----
+
+====
+****
+
+.Въпрос 11
+****
+Write expressions that make these assignments:
+
+[loweralpha]
+a. _RightAngle_ gets half the sine of twice PI.
+b. _FourthRoot_ gets the fourth root of 4.7458321E07.
+c. _FifthPower_ gets nine to the fifth power.
+d. _CosineSquared_ gets the square of the cosine of 33.7.
+e. _InverseSquared_ gets the inverse of 97 squared.
+f. _TangentSquaredPi_ gets the square of the tangent of _PI_.
+
+.Answer
+[%collapsible]
+====
+Written correctly, the program would be:
+[source,pascal]
+----
+a) RightAngle := sin(2*PI)/2;    b) FourthRoot := sqrt(sqrt(4.7458321E+07));
+c) FifthPower := 9*sqr(sqr(9));  d) CosineSquared := sqr(cos(33.7));
+e) InverseSquared := 1/sqr(97);  f) TangentSquaredPi := sqr(sin(pi)/cos(PI));
+----
+====
+****
+
+.Въпрос 12
+****
 There are 
 
 [source]
