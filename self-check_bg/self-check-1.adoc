@@ -49,6 +49,7 @@ end.                                                  {line 7}
 ****
 Write these numbers as Pascal reals. 
 
+[grid=none]
 |===
 |a) 341,234    |b) .234       |c) 234.73456
 |d) 88         |e) .008562    |f) -9427.003
@@ -58,6 +59,7 @@ Write these numbers as Pascal reals.
 Notice that conventionally there’s only one digit before the decimal in floating-
 point notation.
 
+[grid=none]
 |===
 |a) 3.41234E+05 |b) 2.34E-01  |c) 2.3473456E+02
 |d) 8.8E+01     |e) 8.562E-03 |f) -9.427003E+03
