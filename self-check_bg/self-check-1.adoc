@@ -70,35 +70,118 @@ point notation.
 
 .Въпрос 4
 ****
-There are 
+Are these both valid variable declarations?
 
 [source]
 ----
+var day, month: integer; 
+    time: real; 
 ----
 
-Written correctly, the program would be:
-[source,pascal]
+[source]
 ----
+var time: real;
+    day: integer;
+    month: integer;
 ----
+
+Yes. The syntax chart shows that the exact order and grouping of declarations
+is unimportant.
 
 ****
 
 .Въпрос 5
 ****
-There are 
+Match the variables with the values they may represent.
+Which values may not be given to any variable? Assume we’ve made this declaration:
 
 [source]
 ----
+var IntegerValue: integer; Letter: char; RealValue: real;
 ----
 
-Written correctly, the program would be:
-[source,pascal]
-----
-----
+a) l
+e) -52
+i) .9E-3
+m) -667.3
+
+b) 0.0
+f) 0
+j) 35.2E-17
+n) 1,387
+
+c) T
+g) 5.E+22
+k) -18E+6.0
+o) -1
+
+d) .3519
+h) ;
+l) dd
+p) -12E-7
+
+
+_IntegerValue_ may be 7, -52, 0, or -7.
+_Letter_ may be ‘7’, T\ ‘O’, or .
+_RealValue_ may be 7, 0.0, -52, 0, 35.2E-17, -667.3, -7, or -12E-7.
+The values .3519, 5.E+22, .9E-3, -18E+6.0, dd, and 1,387 aren’t legal Pascal,
+and can’t be given to any variables at all.
 
 ****
 
 .Въпрос 6
+****
+Correct these assignment statements.
+
+[source]
+----
+a) 2nd := 1st+Correction;   b) 5+7 = Sum;
+c) FirstLetter := A;        d) StartingCount := Initial := 0;
+e) Efficiency := .35;       f) Initial := 'WS';
+g) Sum := 9 and 13;         h) TaxRate:=5%;
+----
+
+The rewritten assignments:
+
+[source,pascal]
+----
+a) Second := First+Correction;  b) Sum := 5+7;
+c) FirstLetter := 'A';          d) StartingCount := 0; Initial := 0;
+e) Efficiency := 0.35;          f) A variable represents just one letter.
+g) Sum := 9+13;                 h) TaxRate:= 0.05;
+----
+
+****
+
+.Въпрос 7
+****
+Evaluate these expressions. Assume that the following assignments have been
+made: `Channel := 6;` and `Frequency := 3.5;`. What is the type of each of 
+the expressions?
+
+a) 102 div 25           b) _Channel_ * _Frequency_
+c) _Frequency_-_Channel_    d) 69 mod _Channel_
+e) _Channel_ mod 69       f) _Channel_ mod _Frequency_
+g) 12E+02+_Frequency_     h) 12E+02+_Channel_
+i) _Channel_/1            y) _Channel_* 1.0
+
+Note the mismatched types in _f_.
+
+a) 4 _integer_
+c) -2.5 _real_
+e) 6 _integer_
+g) 1203.5 _real_
+i) 6.0 _real_
+
+b) 21.0 _real_
+d) 3 _integer_
+f) Type clash—invalid expression
+h) 1206.0 _real_
+j) 6.0 _real_
+
+****
+
+.Въпрос 8
 ****
 There are 
 
