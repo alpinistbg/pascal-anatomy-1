@@ -44,3 +44,69 @@ end.                                                  {line 7}
 ----
 
 ****
+
+.Въпрос 3
+****
+Write these numbers as Pascal reals. 
+
+|===
+|a) 341,234    |b) .234       |c) 234.73456
+|d) 88         |e) .008562    |f) -9427.003
+|g) 10^14^     |h) -50        |i) 12.500
+|===
+
+Notice that conventionally there’s only one digit before the decimal in floating-
+point notation.
+
+|===
+|a) 3.41234E+05 |b) 2.34E-01  |c) 2.3473456E+02
+|d) 8.8E+01     |e) 8.562E-03 |f) -9.427003E+03
+|g) 1.0E+14     |h) -5.0E+01  |i) 1.25E+01
+|===
+
+****
+
+.Въпрос 4
+****
+There are 
+
+[source]
+----
+----
+
+Written correctly, the program would be:
+[source,pascal]
+----
+----
+
+****
+
+.Въпрос 5
+****
+There are 
+
+[source]
+----
+----
+
+Written correctly, the program would be:
+[source,pascal]
+----
+----
+
+****
+
+.Въпрос 6
+****
+There are 
+
+[source]
+----
+----
+
+Written correctly, the program would be:
+[source,pascal]
+----
+----
+
+****
