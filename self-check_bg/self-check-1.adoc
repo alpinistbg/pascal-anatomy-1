@@ -316,7 +316,8 @@ e) InverseSquared := 1/sqr(97);  f) TangentSquaredPi := sqr(sin(pi)/cos(PI));
 
 .Въпрос 12
 ****
-There are 
+Can you write expressions that use the ord and chr functions to duplicate the
+effects of pred and succ with char arguments?
 
 [source]
 ----
@@ -325,9 +326,203 @@ There are
 .Answer
 [%collapsible]
 ====
-Written correctly, the program would be:
+Assume that Symbol is a char variable.
+
+`pred(Symbol)` is `chr(ord(Symbol)-1)`
+`succ(Symbol)` is `chr{ord{Symbol)+l)`
+====
+****
+
+.Въпрос 13
+****
+The following procedure declaration contains an error that should be easy 
+to spot. What is it?
+
+[source]
+----
+procedure Wrong (A: integer; var B : integer);
+var A : integer; B: real;
+----
+
+.Answer
+[%collapsible]
+====
+Declared parameters share the scope of local variables. Procedure _Wrong_ tries
+to use two identifiers (_A_ and _B_) in equally local places. Whether the parameters
+and local variables are of identical or different types is irrelevant. It’s as incorrect a
+pair of declarations as this would be:
+
 [source,pascal]
 ----
+var A: integer; A: real;
 ----
 ====
 ****
+
+.Въпрос 14
+****
+May a function call be an argument of a procedure? Another function?
+
+.Answer
+[%collapsible]
+====
+Since it represents a value, a function call, complete with arguments, may be an
+argument of another function or procedure. It provides the initial value of a value
+parameter.
+====
+****
+
+.Въпрос 15
+****
+The first lines of some `for` statements are shown below. How many times do
+each of these statements call for an action to take place? Assume that these 
+assignments have been made: `LastLetter := 'F'`, `LowerBound := -5`, 
+and `UpperBound := 3`.
+
+[source]
+----
+a) for Index := 0 to 5 do some_action;
+b) for LetterlD := LastLetter downto 'B' do some_action;
+c) for Pointer := -5 to 3 do some_action;
+d) for Count := abs(LowerBound) downto trunc(4.92) do some_action;
+e) for Index := 5 to 5 do some_action;
+f) for BadCount := UpperBound to LowerBound do some_action;
+g) for AnotherBadCount := 3 downto 6 do some_action;
+----
+
+.Answer
+[%collapsible]
+====
+The actions of examples _f_ and _g_ will not take place at all. A 'repetition' by the
+way, is a single instance of an action.
+
+[loweralpha]
+a. 6 repetitions.
+b. 5 repetitions.
+c. 9 repetitions.
+d. 2 repetitions.
+e. 1 repetition.
+f. 0 repetitions—UpperBound is greater than LowerBound.
+g. 0 repetitions—3 is less than 6.
+====
+****
+
+.Въпрос 16
+****
+What is the output of this segment of code?
+
+[source]
+----
+for Descendant := 9 downto 0 do
+  writeln ((2*Descendant) +1);
+----
+
+.Answer
+[%collapsible]
+====
+It prints the odd numbers from 19 through 1.
+====
+****
+
+.Въпрос 17
+****
+What about this segment? Is it legal? 
+
+[source]
+----
+for Ascendant := 1 to 10 do begin
+  ; ; ;
+end
+----
+
+.Answer
+[%collapsible]
+====
+The statement doesn’t do anything, but it’s perfectly legal Pascal. The for
+statement’s action is a compound statement that contains four empty statements
+(since there are three statement separators).
+====
+****
+
+.Въпрос 18
+****
+How many elements does each of the array types defined below have?
+
+[source]
+----
+a) type Store = array [0..7] of integer;
+b) type Points = array [-50..50] of real;
+c) type SmallLetters = array ['d'..'h'] of char;
+d) type Equivalents = array ['1'..'9'] of integer;
+e) type Code = array [char] of char;
+----
+
+.Answer
+[%collapsible]
+====
+Don’t forget to declare variables as well as defining their types.
+
+[loweralpha]
+a. 8 elements of type integer.
+b. 101 elements (don’t forget the ‘O’th) of type real.
+c. 5 elements of type char.
+d. 9 elements of type integer.
+e. As many char elements as there are values in type char.
+====
+****
+
+.Въпрос 19
+****
+The code segment below is purported to reverse the contents of the array 
+_Statement_. Does it? Assume that _Statement_ is a ten-element array of char values
+whose initial value is 'Bruce!Boss'.
+
+[source]
+----
+for Current 1 to 10 do
+  Statement[Current] := Statement[(10-Current) +1];
+----
+
+.Answer
+[%collapsible]
+====
+The code segment contains one of the oldest bugs in the book—it inadvertently
+destroys one of the two values it tries to exchange. After execution, the contents of
+_Statement_ would be 'ssoB!!Boss'. 
+
+A correct exchange uses a temporary variable to effect the exchange of values. Note
+that we don’t travel through the entire array—every value in the first half (the
+values of _Current_) is switched with its corresponding value in the second half.
+
+[source,pascal]
+----
+for i := 1 to 5 do begin
+  Temp := Statement[i];
+  Statement[i] := Statement[10-i + 1];
+  Statement[10-i + 1] := Temp;
+end;
+----
+====
+****
+
+.Въпрос 20
+****
+Which of these values could be used in a case statement’s constant list?
+
+[source]
+----
+a) Time       b) Year div 4   c) 5+2
+d) ord('W')   e) 'B'          f) B
+g) 9          h) -4           i) true
+----
+
+.Answer
+[%collapsible]
+====
+The _integer_ values 9 and -4 are valid, as is the _char_ value 'B'. Answer _i_,
+_true_ is a _boolean_ value, and may also be used. The remaining values -- _Time_, _B_,
+_ord_('W'), _Year_ div 4, and 5+2  -- are identifiers or expressions, and may not be used.
+====
+****
+
+
