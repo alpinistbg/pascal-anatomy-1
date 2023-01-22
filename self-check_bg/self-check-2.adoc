@@ -1,0 +1,185 @@
+= Паскал тест 2
+include::locale/attributes-bg.adoc[]
+:toc: left
+:toclevels: 4
+:sectnums:
+:source-highlighter: coderay
+:docinfo1:
+
+ifndef::backend-pdf[]
+++++
+<style>
+body { font-family: "Open Sans", "DejaVu Sans", sans-serif; }
+</style>
+++++
+endif::[]
+
+.Въпрос 1
+****
+Suppose that _Willy_ and _Nilly_ are _boolean_ variables. What will the value of
+Willy be after assignment 1 if _Nilly_ is true? false? Is there anything wrong with
+assignment 2 syntactically? From the viewpoint of conciseness or clarity?
+
+[source]
+----
+Willy := Nilly = false; {Assignment 1}
+Willy := Nilly = true;  {Assignment 2}
+----
+
+.Answer
+[%collapsible]
+====
+The first assignment statement gives _Willy_ the opposite value of _Nilly_. If _Nilly_
+equals _true_, _Willy_ becomes _false_, and if _Nilly_ represents _false_, _Willy_ takes on the
+value _true_. The second assignment statement has correct Pascal syntax, but is
+redundant. It should have been written as:
+
+[source]
+----
+Willy := Nilly;
+----
+
+because the expression `Nilly=true` is identical to the value of _Nilly_.
+
+====
+
+****
+
+.Въпрос 2
+****
+Rewrite this assignment as an if .. . then ... else statement.
+
+[source]
+----
+Finished := Response = 'Q';
+----
+
+.Answer
+[%collapsible]
+====
+Not too many of these are 
+
+[source]
+----
+if Response = 'Q'
+  then Finished := true
+  else Finished := false;
+----
+
+====
+
+****
+
+.Въпрос 3
+****
+What’s wrong with the boolean expression in this statement?
+
+[source]
+----
+if Finished=true then ...
+----
+
+.Answer
+[%collapsible]
+====
+As a _boolean_ variable, _Finished_ represents either the value _true_ or _false_.
+`Finished=true` represents the exact same value. Thus, the redundant way the
+expression is written forces the computer to go through the unenlightening exercise
+of determining that `true=true` is _true_, or that `false=true` is _false_.
+====
+
+****
+
+Въпрос 4
+****
+Write each of these relations or conditions as a _boolean_ expression.
+
+[source]
+a. _ConditionMet_ is _true_
+b. 50 ≤ Time ≤ 100
+c. Letter is 'V' or _Goals_ is less than 4
+d. A < 27, B > 6, C ≠ 13, and _Char_ isn't 'T'
+e. A < 21, B > 6, C ≠ 13, and _Char_ isn't 'T' or, on the other hand, 50 ≤ Time ≤ 100
+f. _State_ is neither _High_ nor _Low_.
+
+.Answer
+[%collapsible]
+====
+Note the necessary use of parentheses around relational expressions.
+
+[source]
+----
+a) ConditionMet
+b) (Time>=50) and (Time<=100)
+c) (Letter='V') or (Goals<4)
+d) (A<27) and (B>6) and (C<>13) and (Char<>'T')
+e) ((A<27) and (B>6) and (C<>13) and (Char<>'T'))
+    or ((Time>=50) and (Time<=100))
+f) (State<>High) and (State<>Low)
+----
+
+====
+
+****
+
+Въпрос 5
+****
+Is it possible for this to be a valid expression?
+
+[source]
+----
+InputValue in [ -15 .. 25, 'f' .. 'w' ]
+----
+
+.Answer
+[%collapsible]
+====
+It couldn’t possibly be a good _boolean_ expression, because we’ve tried to define
+a set that contains two different types of values -- _integer_, and _char_. The members
+of a set, and the value whose membership we’re checking, must all belong to the
+same ordinal type.
+====
+
+****
+
+Въпрос 1
+****
+Кои от следните 
+
+[source]
+----
+----
+
+.Answer
+[%collapsible]
+====
+Not too many of these are 
+
+[source]
+----
+----
+
+====
+
+****
+
+Въпрос 1
+****
+Кои от следните 
+
+[source]
+----
+----
+
+.Answer
+[%collapsible]
+====
+Not too many of these are 
+
+[source]
+----
+----
+
+====
+
+****
