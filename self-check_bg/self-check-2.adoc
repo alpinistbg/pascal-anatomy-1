@@ -47,7 +47,7 @@ because the expression `Nilly=true` is identical to the value of _Nilly_.
 
 .Въпрос 2
 ****
-Rewrite this assignment as an if .. . then ... else statement.
+Rewrite this assignment as an if ... then ... else statement.
 
 [source]
 ----
@@ -57,7 +57,6 @@ Finished := Response = 'Q';
 .Answer
 [%collapsible]
 ====
-Not too many of these are 
 
 [source]
 ----
@@ -94,7 +93,7 @@ of determining that `true=true` is _true_, or that `false=true` is _false_.
 ****
 Write each of these relations or conditions as a _boolean_ expression.
 
-[source]
+[loweralpha]
 a. _ConditionMet_ is _true_
 b. 50 ≤ Time ≤ 100
 c. Letter is 'V' or _Goals_ is less than 4
@@ -142,39 +141,131 @@ same ordinal type.
 
 ****
 
-Въпрос 1
+Въпрос 6
 ****
-Кои от следните 
+What’s wrong with these exit conditions? Why are they probably in error?
 
 [source]
 ----
+   repeat
+     SomeActions
+a. until true
+b. untilfalse
+c. until abs(Counter) < 0
+d. until (Value> 10) and (Value<=5)
+e. until (Value<=10) or (Value>=11)
 ----
 
 .Answer
 [%collapsible]
 ====
-Not too many of these are 
-
-[source]
-----
-----
+All these exit conditions are either always _true_ (a, e), or invariably _false_ (b, c,
+d). There is no way any of them can be modified. Thus, the `true` loops will only
+take place once, and the `false` loops will repeat forever.
 
 ====
 
 ****
 
-Въпрос 1
+Въпрос 7
 ****
-Кои от следните 
+What is the intention and effect of function _RawPower_, below? What 
+restriction _Power_ does it remove?
 
 [source]
 ----
+function RawPower(X: real; n: integer): real;
+{Recursively calculates X^n^. Assume?}
+begin
+  if n = 0
+    then RawPower := 1
+    else if n > 0
+      then RawPower :** X * RawPower(X, n-1)
+      else RawPower := 1 / RawPower(X, -n)
+end; {RawPower}
 ----
 
 .Answer
 [%collapsible]
 ====
-Not too many of these are 
+_RawPower_ is considerably more robust than _Power_. It is still a recursive 
+procedure whose algorithm is nearly identical to Power's. However, it can raise X to a
+power smaller than 1. In other words, n can be any _integer_, positive, negative, or
+zero.
+
+====
+
+****
+
+Въпрос 8
+****
+What is the largest number of times the innermost *else* will be entered, above?
+
+.Answer
+[%collapsible]
+====
+At most, the call `Power(X, -n)` will occur once.
+
+====
+
+****
+
+Въпрос 9
+****
+Is this a valid type declaration? Why or why not?
+
+[source]
+----
+type Letters = ('A', B', 'C', 'D', 'E', F');
+----
+
+.Answer
+[%collapsible]
+====
+It’s illegal. 'A', 'B', etc. are not identifiers--they're constant values of type char.
+The definition doesn’t conform to Pascal syntax. We could use A, B, C, etc., as
+identifiers, but only if we omitted the single quote marks.
+
+====
+
+****
+
+Въпрос 10
+****
+Though we’ve seen that values of enumerated ordinal types can be used with
+any control statement, there are a few pitfalls to beware of. What’s wrong with
+these program segments?
+
+[source]
+----
+// Left-hand
+WorkDay := Monday;
+while WorkDay <= Sunday do begin
+  read(Hours);
+  Total := Total + Hours;
+  WorkDay := succ(WorkDay)
+end;
+
+// Right-hand
+WorkDay := Monday;
+repeat
+  read(Hours);
+  Total := Total + Hours;
+  WorkDay := succ(WorkDay)
+until WorkDay = Sunday;
+----
+
+.Answer
+[%collapsible]
+====
+The left-hand program segment tries to use a *while* loop to cycle through the
+days of the week. Unfortunately, its exit condition is that _WorkDay_ be greater than
+_Sunday_. As far as our program is concerned, there is no day greater than
+_Sunday_ -- the program crashes when it tries to give _WorkDay_ the successor to
+_Sunday_.
+The second segment bends over too far backwards in an attempt to avoid
+making the same error. Its exit condition is that _WorkDay_ equal _Sunday_; 
+consequently, the number of hours worked on _Sunday_ is never read in.
 
 [source]
 ----
