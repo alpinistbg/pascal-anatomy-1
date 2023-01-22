@@ -1,3 +1,18 @@
+= Паскал тест 1
+include::locale/attributes-bg.adoc[]
+:toc: left
+:toclevels: 4
+:sectnums:
+:source-highlighter: coderay
+:docinfo1:
+
+ifndef::backend-pdf[]
+++++
+<style>
+body { font-family: "Open Sans", "DejaVu Sans", sans-serif; }
+</style>
+++++
+endif::[]
 
 .Въпрос 1
 ****
