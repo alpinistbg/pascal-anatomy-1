@@ -1,5 +1,5 @@
 = Паскал тест 1
-include::locale/attributes-bg.adoc[]
+include::../locale/attributes-bg.adoc[]
 :toc: left
 :toclevels: 4
 :sectnums:
@@ -343,8 +343,8 @@ effects of pred and succ with char arguments?
 ====
 Assume that Symbol is a char variable.
 
-`pred(Symbol)` is `chr(ord(Symbol)-1)`
-`succ(Symbol)` is `chr{ord{Symbol)+l)`
+`pred(Symbol)` is `chr(ord(Symbol)-1)` +
+`succ(Symbol)` is `chr(ord(Symbol)+l)`
 ====
 ****
 
@@ -355,7 +355,7 @@ to spot. What is it?
 
 [source]
 ----
-procedure Wrong (A: integer; var B : integer);
+procedure Wrong(A: integer; var B : integer);
 var A : integer; B: real;
 ----
 
@@ -426,7 +426,7 @@ g. 0 repetitions—3 is less than 6.
 ****
 What is the output of this segment of code?
 
-[source]
+[source,pascal]
 ----
 for Descendant := 9 downto 0 do
   writeln ((2*Descendant) +1);
@@ -443,7 +443,7 @@ It prints the odd numbers from 19 through 1.
 ****
 What about this segment? Is it legal? 
 
-[source]
+[source,pascal]
 ----
 for Ascendant := 1 to 10 do begin
   ; ; ;
@@ -463,7 +463,7 @@ statement’s action is a compound statement that contains four empty statements
 ****
 How many elements does each of the array types defined below have?
 
-[source]
+[source,pascal]
 ----
 a) type Store = array [0..7] of integer;
 b) type Points = array [-50..50] of real;
@@ -492,9 +492,9 @@ The code segment below is purported to reverse the contents of the array
 _Statement_. Does it? Assume that _Statement_ is a ten-element array of char values
 whose initial value is 'Bruce!Boss'.
 
-[source]
+[source,pascal]
 ----
-for Current 1 to 10 do
+for Current := 1 to 10 do
   Statement[Current] := Statement[(10-Current) +1];
 ----
 
@@ -524,7 +524,7 @@ end;
 ****
 Which of these values could be used in a case statement’s constant list?
 
-[source]
+[source,pascal]
 ----
 a) Time       b) Year div 4   c) 5+2
 d) ord('W')   e) 'B'          f) B

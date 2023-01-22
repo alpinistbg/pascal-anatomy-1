@@ -1,5 +1,5 @@
 = Паскал тест 2
-include::locale/attributes-bg.adoc[]
+include::../locale/attributes-bg.adoc[]
 :toc: left
 :toclevels: 4
 :sectnums:
@@ -20,7 +20,7 @@ Suppose that _Willy_ and _Nilly_ are _boolean_ variables. What will the value of
 Willy be after assignment 1 if _Nilly_ is true? false? Is there anything wrong with
 assignment 2 syntactically? From the viewpoint of conciseness or clarity?
 
-[source]
+[source,pascal]
 ----
 Willy := Nilly = false; {Assignment 1}
 Willy := Nilly = true;  {Assignment 2}
@@ -34,7 +34,7 @@ equals _true_, _Willy_ becomes _false_, and if _Nilly_ represents _false_, _Will
 value _true_. The second assignment statement has correct Pascal syntax, but is
 redundant. It should have been written as:
 
-[source]
+[source,pascal]
 ----
 Willy := Nilly;
 ----
@@ -42,14 +42,13 @@ Willy := Nilly;
 because the expression `Nilly=true` is identical to the value of _Nilly_.
 
 ====
-
 ****
 
 .Въпрос 2
 ****
 Rewrite this assignment as an if ... then ... else statement.
 
-[source]
+[source,pascal]
 ----
 Finished := Response = 'Q';
 ----
@@ -58,22 +57,20 @@ Finished := Response = 'Q';
 [%collapsible]
 ====
 
-[source]
+[source,pascal]
 ----
 if Response = 'Q'
   then Finished := true
   else Finished := false;
 ----
-
 ====
-
 ****
 
 .Въпрос 3
 ****
 What’s wrong with the boolean expression in this statement?
 
-[source]
+[source,pascal]
 ----
 if Finished=true then ...
 ----
@@ -86,7 +83,6 @@ As a _boolean_ variable, _Finished_ represents either the value _true_ or _false
 expression is written forces the computer to go through the unenlightening exercise
 of determining that `true=true` is _true_, or that `false=true` is _false_.
 ====
-
 ****
 
 Въпрос 4
@@ -106,7 +102,7 @@ f. _State_ is neither _High_ nor _Low_.
 ====
 Note the necessary use of parentheses around relational expressions.
 
-[source]
+[source,pascal]
 ----
 a) ConditionMet
 b) (Time>=50) and (Time<=100)
@@ -116,16 +112,14 @@ e) ((A<27) and (B>6) and (C<>13) and (Char<>'T'))
     or ((Time>=50) and (Time<=100))
 f) (State<>High) and (State<>Low)
 ----
-
 ====
-
 ****
 
 Въпрос 5
 ****
 Is it possible for this to be a valid expression?
 
-[source]
+[source,pascal]
 ----
 InputValue in [ -15 .. 25, 'f' .. 'w' ]
 ----
@@ -138,19 +132,18 @@ a set that contains two different types of values -- _integer_, and _char_. The 
 of a set, and the value whose membership we’re checking, must all belong to the
 same ordinal type.
 ====
-
 ****
 
 Въпрос 6
 ****
 What’s wrong with these exit conditions? Why are they probably in error?
 
-[source]
+[source,pascal]
 ----
    repeat
      SomeActions
 a. until true
-b. untilfalse
+b. until false
 c. until abs(Counter) < 0
 d. until (Value> 10) and (Value<=5)
 e. until (Value<=10) or (Value>=11)
@@ -162,9 +155,7 @@ e. until (Value<=10) or (Value>=11)
 All these exit conditions are either always _true_ (a, e), or invariably _false_ (b, c,
 d). There is no way any of them can be modified. Thus, the `true` loops will only
 take place once, and the `false` loops will repeat forever.
-
 ====
-
 ****
 
 Въпрос 7
@@ -172,7 +163,7 @@ take place once, and the `false` loops will repeat forever.
 What is the intention and effect of function _RawPower_, below? What 
 restriction _Power_ does it remove?
 
-[source]
+[source,pascal]
 ----
 function RawPower(X: real; n: integer): real;
 {Recursively calculates X^n^. Assume?}
@@ -192,9 +183,7 @@ _RawPower_ is considerably more robust than _Power_. It is still a recursive
 procedure whose algorithm is nearly identical to Power's. However, it can raise X to a
 power smaller than 1. In other words, n can be any _integer_, positive, negative, or
 zero.
-
 ====
-
 ****
 
 Въпрос 8
@@ -205,16 +194,14 @@ What is the largest number of times the innermost *else* will be entered, above?
 [%collapsible]
 ====
 At most, the call `Power(X, -n)` will occur once.
-
 ====
-
 ****
 
 Въпрос 9
 ****
 Is this a valid type declaration? Why or why not?
 
-[source]
+[source,pascal]
 ----
 type Letters = ('A', B', 'C', 'D', 'E', F');
 ----
@@ -225,9 +212,7 @@ type Letters = ('A', B', 'C', 'D', 'E', F');
 It’s illegal. 'A', 'B', etc. are not identifiers--they're constant values of type char.
 The definition doesn’t conform to Pascal syntax. We could use A, B, C, etc., as
 identifiers, but only if we omitted the single quote marks.
-
 ====
-
 ****
 
 Въпрос 10
@@ -236,7 +221,7 @@ Though we’ve seen that values of enumerated ordinal types can be used with
 any control statement, there are a few pitfalls to beware of. What’s wrong with
 these program segments?
 
-[source]
+[source,pascal]
 ----
 // Left-hand
 WorkDay := Monday;
@@ -266,11 +251,5 @@ _Sunday_.
 The second segment bends over too far backwards in an attempt to avoid
 making the same error. Its exit condition is that _WorkDay_ equal _Sunday_; 
 consequently, the number of hours worked on _Sunday_ is never read in.
-
-[source]
-----
-----
-
 ====
-
 ****
