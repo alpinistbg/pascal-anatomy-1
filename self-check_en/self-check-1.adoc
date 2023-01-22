@@ -1,0 +1,535 @@
+= Pascal test 1
+include::../locale/attributes-en.adoc[]
+:toc: left
+:toclevels: 4
+:sectnums:
+:source-highlighter: coderay
+:docinfo1:
+
+ifndef::backend-pdf[]
+++++
+<style>
+body { font-family: "Open Sans", "DejaVu Sans", sans-serif; }
+</style>
+++++
+endif::[]
+
+.Question 1
+****
+Which of the following are valid Standard Pascal identifiers?
+
+[source]
+----
+birthday        case                CaseNumber
+TooHot?         First_Initial       3rdValue
+-Number         OldName             downto.what
+'grade'         1Program            Beginning
+----
+
+.Answer
+[%collapsible]
+====
+Not too many of these are valid — only _birthday_, _CaseNumber_, _OldName_, and
+_Beginning_ may be used correctly, _case_ is tempting, but it’s a reserved word.
+====
+****
+
+.Question 2
+****
+There are errors on each line of this program. Find them.
+
+[source]
+----
+program Print.Paper (output;)                         {line 1}
+begin;                                                {line 2}
+  write('To think that two and two are four, );       {line 3}
+  writln(and neither five or three, );                {line 4}
+  write('The heart of man has long been sore';        {line 5}
+  write('and long 'tis like to be.')                  {line 6}
+end                                                   {line 7}
+----
+
+.Answer
+[%collapsible]
+====
+Written correctly, the program would be:
+[source,pascal]
+----
+program PrintPaper (output);                          {line 1}
+begin                                                 {line 2}
+  write('To think that two and two are four, ');      {line 3}
+  writeln('and neither five or three, ');             {line 4}
+  write('The heart of man has long been sore ');      {line 5}
+  writeln('and long ''tis like to be.')               {line 6}
+end.                                                  {line 7}
+----
+====
+****
+
+.Question 3
+****
+Write these numbers as Pascal reals. 
+
+[grid=none]
+|===
+|a) 341,234    |b) .234       |c) 234.73456
+|d) 88         |e) .008562    |f) -9427.003
+|g) 10^14^     |h) -50        |i) 12.500
+|===
+
+.Answer
+[%collapsible]
+====
+Notice that conventionally there’s only one digit before the decimal in floating-
+point notation.
+
+[grid=none]
+|===
+|a) 3.41234E+05 |b) 2.34E-01  |c) 2.3473456E+02
+|d) 8.8E+01     |e) 8.562E-03 |f) -9.427003E+03
+|g) 1.0E+14     |h) -5.0E+01  |i) 1.25E+01
+|===
+====
+****
+
+.Question 4
+****
+Are these both valid variable declarations?
+
+[source]
+----
+var day, month: integer; 
+    time: real; 
+----
+
+[source]
+----
+var time: real;
+    day: integer;
+    month: integer;
+----
+
+.Answer
+[%collapsible]
+====
+Yes. The syntax chart shows that the exact order and grouping of declarations
+is unimportant.
+====
+****
+
+.Question 5
+****
+Match the variables with the values they may represent.
+Which values may not be given to any variable? Assume we’ve made this declaration:
+
+[source,pascal]
+----
+var IntegerValue: integer; Letter: char; RealValue: real;
+----
+
+[grid=none]
+|===
+|a) 7            |b) 0.0          |c) T          |d) .3519
+|e) -52          |f) 0            |g) 5.E+22     |h) ;
+|i) .9E-3        |j) 35.2E-17     |k) -18E+6.0   |l) dd
+|m) -667.3       |n) 1,387        |o) -1         |p) -12E-7
+|===
+
+.Answer
+[%collapsible]
+====
+_IntegerValue_ may be 7, -52, 0, or -7. +
+_Letter_ may be '7', 'T', 'O', or ';' +
+_RealValue_ may be 7, 0.0, -52, 0, 35.2E-17, -667.3, -7, or -12E-7. +
+The values .3519, 5.E+22, .9E-3, -18E+6.0, dd, and 1,387 aren’t legal Pascal,
+and can’t be given to any variables at all.
+====
+****
+
+.Question 6
+****
+Correct these assignment statements.
+
+[source]
+----
+a) 2nd := 1st+Correction;   b) 5+7 = Sum;
+c) FirstLetter := A;        d) StartingCount := Initial := 0;
+e) Efficiency := .35;       f) Initial := 'WS';
+g) Sum := 9 and 13;         h) TaxRate:=5%;
+----
+
+.Answer
+[%collapsible]
+====
+The rewritten assignments:
+
+[source,pascal]
+----
+a) Second := First+Correction;  b) Sum := 5+7;
+c) FirstLetter := 'A';          d) StartingCount := 0; Initial := 0;
+e) Efficiency := 0.35;          f) A variable represents just one letter.
+g) Sum := 9+13;                 h) TaxRate:= 0.05;
+----
+====
+
+****
+
+.Question 7
+****
+Evaluate these expressions. Assume that the following assignments have been
+made: `Channel := 6;` and `Frequency := 3.5;`. What is the type of each of 
+the expressions?
+
+[grid=none]
+|===
+|a) 102 div 25               |b) _Channel_ * _Frequency_
+|c) _Frequency_-_Channel_    |d) 69 mod _Channel_
+|e) _Channel_ mod 69         |f) _Channel_ mod _Frequency_
+|g) 12E+02+_Frequency_       |h) 12E+02+_Channel_
+|i) _Channel_/1              |y) _Channel_* 1.0
+|===
+
+.Answer
+[%collapsible]
+====
+Note the mismatched types in _f_.
+
+[grid=none]
+|===
+|a) 4 _integer_              |b) 21.0 _real_
+|c) -2.5 _real_              |d) 3 _integer_
+|e) 6 _integer_              |f) Type clash—invalid expression
+|g) 1203.5 _real_            |h) 1206.0 _real_
+|i) 6.0 _real_               |j) 6.0 _real_
+|===
+
+====
+
+****
+
+.Question 8
+****
+These expressions are evaluated in a certain sequence by the rules of Pascal.
+Insert parentheses to make the order more explicit.
+
+[source]
+----
+a) 5-9*3+2              b) 0.09/1.394*8.6/5.004E+02
+c) 7*8-9+12 div 5       d) 1E+04/2.5E-01+350.0*-0.10
+e) 1+3*9 div -6 div 7   f) 5.9E+07+(-18E+03)-0.6/5.9E-02-8.1
+----
+
+.Answer
+[%collapsible]
+====
+All other things being equal, evaluation goes from left to right.
+
+[source,pascal]
+----
+a) 5-(9*3)+2                   b) ((0.09/1.394)*8.6)/5.004E+02
+c) (7*8)-9+(12 div 5)          d) (1E+04/2.5E-01)+(350.0*(-0.10))
+e) 1+(((3*9) div(-6)) div 7)   f) 5.9E+07+(-18E+03)-(0.6/5.9E-02)-8.1
+----
+====
+****
+
+
+.Question 9
+****
+What types do each of these constants represent?
+
+[source]
+----
+a) WIDTH = 5;           b) YEAR = 1981; 
+c) NUMBER = '5';        d) SIZE = 5E+02;
+e) DATE = '1981';       f) SPACE = ''; 
+g) MASS = 1.79E-02;     h) TENSPACES = '          ';
+i) WEIGHT = MASS;       j) CENTURY = YEAR div 100;
+----
+
+.Answer
+[%collapsible]
+====
+Note that _i)_ is legal if _MASS_ has already been declared as a constant.
+
+[grid=none]
+|===
+|a) _integer_           |b) _integer_
+|c) _char_              |d) _real_
+|e) text constant     |f) _char_
+|g) _real_              |h) text constant
+|i) _real_              |j) invalid declaration
+|===
+
+====
+****
+
+.Question 10
+****
+What value will the following program segment print out?
+
+[source]
+----
+  Side := 4;
+  sqr(Side);
+  writeln('The square of the side is ', Side);
+----
+
+.Answer
+[%collapsible]
+====
+The segment won’t run at all, because the function call in the second line of the
+segment — _sqr_(_Side_) — is just a representation of the value 4 squared, or 16. It’s as
+though we had written:
+
+[source,pascal]
+----
+  Side := 4; {incorrect code}
+  16; {The value sqr(Side) represents.}
+  writeln ('The square ofthe side is ', Side) ;
+----
+
+To get the desired effect, we should write:
+
+[source,pascal]
+----
+  Side := 4; {the corrected segment}
+  SquaredSide := sqr(Side);
+  writeln ('The square of the side is ', SquaredSide);
+----
+
+====
+****
+
+.Question 11
+****
+Write expressions that make these assignments:
+
+[loweralpha]
+a. _RightAngle_ gets half the sine of twice PI.
+b. _FourthRoot_ gets the fourth root of 4.7458321E07.
+c. _FifthPower_ gets nine to the fifth power.
+d. _CosineSquared_ gets the square of the cosine of 33.7.
+e. _InverseSquared_ gets the inverse of 97 squared.
+f. _TangentSquaredPi_ gets the square of the tangent of _PI_.
+
+.Answer
+[%collapsible]
+====
+Written correctly, the program would be:
+[source,pascal]
+----
+a) RightAngle := sin(2*PI)/2;    b) FourthRoot := sqrt(sqrt(4.7458321E+07));
+c) FifthPower := 9*sqr(sqr(9));  d) CosineSquared := sqr(cos(33.7));
+e) InverseSquared := 1/sqr(97);  f) TangentSquaredPi := sqr(sin(pi)/cos(PI));
+----
+====
+****
+
+.Question 12
+****
+Can you write expressions that use the ord and chr functions to duplicate the
+effects of pred and succ with char arguments?
+
+.Answer
+[%collapsible]
+====
+Assume that Symbol is a char variable.
+
+`pred(Symbol)` is `chr(ord(Symbol)-1)` +
+`succ(Symbol)` is `chr(ord(Symbol)+l)`
+====
+****
+
+.Question 13
+****
+The following procedure declaration contains an error that should be easy 
+to spot. What is it?
+
+[source]
+----
+procedure Wrong(A: integer; var B : integer);
+var A : integer; B: real;
+----
+
+.Answer
+[%collapsible]
+====
+Declared parameters share the scope of local variables. Procedure _Wrong_ tries
+to use two identifiers (_A_ and _B_) in equally local places. Whether the parameters
+and local variables are of identical or different types is irrelevant. It’s as incorrect a pair of declarations as this would be:
+
+[source,pascal]
+----
+var A: integer; A: real;
+----
+====
+****
+
+.Question 14
+****
+May a function call be an argument of a procedure? Another function?
+
+.Answer
+[%collapsible]
+====
+Since it represents a value, a function call, complete with arguments, may be an
+argument of another function or procedure. It provides the initial value of a value
+parameter.
+====
+****
+
+.Question 15
+****
+The first lines of some `for` statements are shown below. How many times do
+each of these statements call for an action to take place? Assume that these 
+assignments have been made: `LastLetter := 'F'`, `LowerBound := -5`, 
+and `UpperBound := 3`.
+
+[source,pascal]
+----
+a) for Index := 0 to 5 do some_action;
+b) for LetterlD := LastLetter downto 'B' do some_action;
+c) for Pointer := -5 to 3 do some_action;
+d) for Count := abs(LowerBound) downto trunc(4.92) do some_action;
+e) for Index := 5 to 5 do some_action;
+f) for BadCount := UpperBound to LowerBound do some_action;
+g) for AnotherBadCount := 3 downto 6 do some_action;
+----
+
+.Answer
+[%collapsible]
+====
+The actions of examples _f_ and _g_ will not take place at all. A 'repetition' by the
+way, is a single instance of an action.
+
+[loweralpha]
+a. 6 repetitions.
+b. 5 repetitions.
+c. 9 repetitions.
+d. 2 repetitions.
+e. 1 repetition.
+f. 0 repetitions—UpperBound is greater than LowerBound.
+g. 0 repetitions—3 is less than 6.
+====
+****
+
+.Question 16
+****
+What is the output of this segment of code?
+
+[source,pascal]
+----
+for Descendant := 9 downto 0 do
+  writeln ((2*Descendant) +1);
+----
+
+.Answer
+[%collapsible]
+====
+It prints the odd numbers from 19 through 1.
+====
+****
+
+.Question 17
+****
+What about this segment? Is it legal? 
+
+[source,pascal]
+----
+for Ascendant := 1 to 10 do begin
+  ; ; ;
+end
+----
+
+.Answer
+[%collapsible]
+====
+The statement doesn’t do anything, but it’s perfectly legal Pascal. The for
+statement’s action is a compound statement that contains four empty statements
+(since there are three statement separators).
+====
+****
+
+.Question 18
+****
+How many elements does each of the array types defined below have?
+
+[source,pascal]
+----
+a) type Store = array [0..7] of integer;
+b) type Points = array [-50..50] of real;
+c) type SmallLetters = array ['d'..'h'] of char;
+d) type Equivalents = array ['1'..'9'] of integer;
+e) type Code = array [char] of char;
+----
+
+.Answer
+[%collapsible]
+====
+Don’t forget to declare variables as well as defining their types.
+
+[loweralpha]
+a. 8 elements of type integer.
+b. 101 elements (don’t forget the ‘O’th) of type real.
+c. 5 elements of type char.
+d. 9 elements of type integer.
+e. As many char elements as there are values in type char.
+====
+****
+
+.Question 19
+****
+The code segment below is purported to reverse the contents of the array 
+_Statement_. Does it? Assume that _Statement_ is a ten-element array of char values
+whose initial value is 'Bruce!Boss'.
+
+[source,pascal]
+----
+for Current := 1 to 10 do
+  Statement[Current] := Statement[(10-Current) +1];
+----
+
+.Answer
+[%collapsible]
+====
+The code segment contains one of the oldest bugs in the book—it inadvertently
+destroys one of the two values it tries to exchange. After execution, the contents of
+_Statement_ would be 'ssoB!!Boss'. 
+
+A correct exchange uses a temporary variable to effect the exchange of values. Note
+that we don’t travel through the entire array—every value in the first half (the
+values of _Current_) is switched with its corresponding value in the second half.
+
+[source,pascal]
+----
+for i := 1 to 5 do begin
+  Temp := Statement[i];
+  Statement[i] := Statement[10-i + 1];
+  Statement[10-i + 1] := Temp;
+end;
+----
+====
+****
+
+.Question 20
+****
+Which of these values could be used in a case statement’s constant list?
+
+[source,pascal]
+----
+a) Time       b) Year div 4   c) 5+2
+d) ord('W')   e) 'B'          f) B
+g) 9          h) -4           i) true
+----
+
+.Answer
+[%collapsible]
+====
+The _integer_ values 9 and -4 are valid, as is the _char_ value 'B'. Answer _i_,
+_true_ is a _boolean_ value, and may also be used. The remaining values -- _Time_, _B_,
+_ord_('W'), _Year_ div 4, and 5+2  -- are identifiers or expressions, and may not be used.
+====
+****
+
+
