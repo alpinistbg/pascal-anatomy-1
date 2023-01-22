@@ -203,7 +203,7 @@ Is this a valid type declaration? Why or why not?
 
 [source,pascal]
 ----
-type Letters = ('A', B', 'C', 'D', 'E', F');
+type Letters = ('A', 'B', 'C', 'D', 'E', 'F');
 ----
 
 .Answer
